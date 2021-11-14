@@ -2,8 +2,7 @@
 
 Demo you can do right now! [Deploy this contract](https://remix.ethereum.org/#version=soljson-v0.6.0+commit.26b70077.js&optimize=false&evmVersion=null&gist=15eae06de1a102701ac6c8cb23eb48e5)
 
-[![](http://img.youtube.com/vi/NdmyUhuQpgI/0.jpg)](http://www.youtube.com/watch?v=NdmyUhuQpgI "")
-
+[![](http://img.youtube.com/vi/NdmyUhuQpgI/0.jpg)](http://www.youtube.com/watch?v=NdmyUhuQpgI)
 
 This external adapter will interface with a MiFare RC522 RFID scanner (or simulate the scanner when no hardware is connected).
 
@@ -17,7 +16,6 @@ The adapter is a simple flask server which will return the UID of an RFID card o
 - `contract.sol`: ready to go solidity contract to run this external adapter on our chainlink node. Made for kovan testnet.
 - `app.py`: flask server to recieve POST requests and route them to the adapter.
 - `jobspecs.json`: jobspecs used to add this adapter to a chainlink node.
-
 
 ## Using simulated scanner
 
@@ -44,10 +42,8 @@ Steps:
 
 3. Test hardware: run `test.sh`. This will start the flask server and send a POST request. If successful, a response with a UID should be returned.
 
-	- The `get_hardware` method in `rfid.py` might have some problems. This is where the serial interface to the arduino board is established. We developed this to run on our computers, so some modification might be necessary.
+   - The `get_hardware` method in `rfid.py` might have some problems. This is where the serial interface to the arduino board is established. We developed this to run on our computers, so some modification might be necessary.
 
-	- Note: this script will leave the `app.py` process running in the background. Use `ps` and `kill` to get rid of it.
+   - Note: this script will leave the `app.py` process running in the background. Use `ps` and `kill` to get rid of it.
 
 4. Deploy: we reccomend using [localtunnel](https://localtunnel.github.io/www/) to expose your flask server remotely. Other solutions are also possible, but we found this to be optimal since the flask server must be run locally (to interface with the hardware).
-
-
